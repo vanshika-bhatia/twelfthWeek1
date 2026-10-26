@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Iframe Draft Widget</h2>
+    <button id="send">Send draft to parent</button>
+
+    <script>
+    document.getElementById("send").addEventListener("click", () => {
+        window.parent.postMessage(
+        {
+            type: "DRAFT_UPDATE",
+            draft: {
+            title: "Test draft",
+            body: "Hello from iframe",
+            },
+        },
+        "http://localhost:5173"
+        );
+    });
+    </script>
+</body>
+</html>
